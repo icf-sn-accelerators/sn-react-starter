@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<j:jelly
+  trim="false"
+  xmlns:j="jelly:core"
+  xmlns:g="glide"
+  xmlns:j2="null"
+  xmlns:g2="null"
+>
+  <g:evaluate>
+    var docType = '&lt;!doctype html&gt;';
+  </g:evaluate>
+  <g2:no_escape>
+    $[docType]
+  </g2:no_escape>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+
+    <title><%= htmlWebpackPlugin.options.title %></title>
+
+    <g:evaluate object="true">
+      var session = gs.getSession();
+      var token = session.getSessionToken();
+      if (token == '' || token == undefined) {
+        token = gs.getSessionToken();
+      }
+    </g:evaluate>
+    <script>
+      window.serviceNowUserToken = "$[token]";
+    </script>
+  </head>
+
+  <body>
+    <noscript>You need Javascript enabled for this application to work!</noscript>
+    <div id="root"></div>
+  </body>
+</j:jelly>
