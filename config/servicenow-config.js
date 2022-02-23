@@ -1,3 +1,7 @@
+/* eslint-disable import/no-extraneous-dependencies */
+const { env } = require('./paths');
+require('dotenv').config({ path: env });
+
 const snConfig = {
   /**
    * This is a default prefix for all ServiceNow APIs
