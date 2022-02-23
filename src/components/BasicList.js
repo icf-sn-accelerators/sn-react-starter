@@ -8,7 +8,7 @@ export default function BasicList() {
   useEffect(() => {
 
     const fetchData = async () => {
-      const res = await rest.get('api/now/table/incident?sysparm_limit=10');
+      const res = await rest.get('/api/now/table/incident?sysparm_limit=10');
       setData(res.data.result);
     }
 
@@ -30,7 +30,7 @@ export default function BasicList() {
           </tr>
         </thead>
         <tbody>
-          {data.length > 0 ? (
+          {data?.length > 0 ? (
             data.map(r => (
               <tr>
                 <td>{r.number}</td>
