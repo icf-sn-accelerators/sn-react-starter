@@ -1,8 +1,12 @@
 import { lazy, Suspense } from 'react';
 import { Link, Outlet, Route, Routes } from 'react-router-dom';
 
-const BasicForm = lazy(() => import(/* webpackChunkName: "BasicForm" */ './components/BasicForm'));
-const BasicList = lazy(() => import(/* webpackChunkName: "BasicList" */ './components/BasicList'));
+const BasicForm = lazy(() =>
+  import(/* webpackChunkName: "BasicForm" */ './components/BasicForm')
+);
+const BasicList = lazy(() =>
+  import(/* webpackChunkName: "BasicList" */ './components/BasicList')
+);
 
 function Form() {
   return (
@@ -26,11 +30,11 @@ export default function App() {
       <h1>Basic Example</h1>
 
       <p>
-        This example demonstrates some of the core features of React Router
-        including nested <code>&lt;Route&gt;</code>s,{' '}
-        <code>&lt;Outlet&gt;</code>s, <code>&lt;Link&gt;</code>s, and using a
-        &quot;*&quot; route (Aka &quot;splat route&quot;) to render a &quot;not found&quot; page when someone
-        visits an unrecognized URL.
+        This example demonstrates some of the core features of React Router including
+        nested <code>&lt;Route&gt;</code>s, <code>&lt;Outlet&gt;</code>s,{' '}
+        <code>&lt;Link&gt;</code>s, and using a &quot;*&quot; route (Aka &quot;splat
+        route&quot;) to render a &quot;not found&quot; page when someone visits an
+        unrecognized URL.
       </p>
 
       <Routes>

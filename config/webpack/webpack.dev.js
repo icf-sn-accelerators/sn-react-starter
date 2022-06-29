@@ -1,7 +1,6 @@
 /* eslint-disable import/no-extraneous-dependencies */
 const ReactRefreshPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const webpack = require('webpack');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const { merge } = require('webpack-merge');
 
@@ -15,9 +14,11 @@ module.exports = merge(common, {
     headers: {
       'Access-Control-Allow-Origin': '*',
       'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, PATCH, OPTIONS',
-      'Access-Control-Allow-Headers': 'X-Requested-With, content-type, Authorization',
+      'Access-Control-Allow-Headers':
+        'X-Requested-With, content-type, Authorization',
     },
     historyApiFallback: true,
+    hot: true,
     open: true,
     port: 3000,
     proxy: {
@@ -25,7 +26,7 @@ module.exports = merge(common, {
         changeOrigin: true,
         secure: false,
         target: SERVICENOW_INSTANCE,
-      }
+      },
     },
     static: paths.build,
   },
@@ -40,6 +41,5 @@ module.exports = merge(common, {
     }),
     new BundleAnalyzerPlugin({ openAnalyzer: false }),
     new ReactRefreshPlugin(),
-    new webpack.HotModuleReplacementPlugin(),
   ],
 });
