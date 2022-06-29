@@ -51,6 +51,7 @@
     "html-webpack-plugin": "git+https://github.com/jmknz-icf/html-webpack-plugin.git",
     "husky": "^8.0.1",
     "jest": "^28.1.2",
+    "jest-environment-jsdom": "^28.1.2",
     "lint-staged": "^13.0.3",
     "mini-css-extract-plugin": "^2.2.1",
     "node-sass": "^7.0.1",
