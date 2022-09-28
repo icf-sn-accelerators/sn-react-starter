@@ -1,5 +1,12 @@
 import { lazy, Suspense } from 'react';
-import { Link, Outlet, Route, Routes } from 'react-router-dom';
+import {
+  Link,
+  Outlet,
+  Route,
+  RouterProvider,
+  createHashRouter,
+  createRoutesFromElements,
+} from 'react-router-dom';
 
 const BasicForm = lazy(() =>
   import(/* webpackChunkName: "BasicForm" */ './components/BasicForm')
@@ -24,6 +31,19 @@ function List() {
   );
 }
 
+const router = createHashRouter(
+  createRoutesFromElements(
+    <Route path="/" element={<Layout />}>
+      <Route index element={<Home />} />
+      <Route path="about" element={<About />} />
+      <Route path="form" element={<Form />} />
+      <Route path="list" element={<List />} />
+      <Route path="dashboard" element={<Dashboard />} />
+      <Route path="*" element={<NoMatch />} />
+    </Route>
+  )
+);
+
 export default function App() {
   return (
     <div>
@@ -37,16 +57,7 @@ export default function App() {
         unrecognized URL.
       </p>
 
-      <Routes>
-        <Route path="/" element={<Layout />}>
-          <Route index element={<Home />} />
-          <Route path="about" element={<About />} />
-          <Route path="form" element={<Form />} />
-          <Route path="list" element={<List />} />
-          <Route path="dashboard" element={<Dashboard />} />
-          <Route path="*" element={<NoMatch />} />
-        </Route>
-      </Routes>
+      <RouterProvider router={router} />
     </div>
   );
 }

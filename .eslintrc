@@ -11,11 +11,7 @@
       "jsx": true
     }
   },
-  "plugins": [
-    "react",
-    "jsx-a11y",
-    "import"
-  ],
+  "plugins": ["react", "jsx-a11y", "import"],
   "extends": [
     "airbnb",
     "airbnb/hooks",
@@ -26,13 +22,20 @@
     "prettier"
   ],
   "rules": {
-    "jsx-a11y/label-has-associated-control": ["error", { "assert": "either"}],
-    "react/jsx-filename-extension": [
-      "warn",
-      { "extensions": [ ".js", ".jsx" ] }
+    "consistent-return": "off",
+    "import/prefer-default-export": "off",
+    "jsx-a11y/label-has-associated-control": ["error", { "assert": "either" }],
+    "no-restricted-syntax": "off",
+    "react/jsx-filename-extension": ["warn", { "extensions": [".js", ".jsx"] }],
+    "react/jsx-props-no-spreading": [
+      "error",
+      {
+        "custom": "ignore",
+        "explicitSpread": "enforce",
+        "html": "enforce"
+      }
     ],
     "react/jsx-uses-react": "off",
     "react/react-in-jsx-scope": "off"
   }
 }
-

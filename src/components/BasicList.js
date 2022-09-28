@@ -1,19 +1,17 @@
 import { useEffect, useState } from 'react';
 
-import rest from '../services/rest-service';
+import { client } from '../services/api-client';
 
 export default function BasicList() {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-
     const fetchData = async () => {
-      const res = await rest.get('/api/now/table/incident?sysparm_limit=10');
-      setData(res.data.result);
-    }
+      const { result } = await client('/api/now/table/incident?sysparm_limit=10');
+      setData(result);
+    };
 
-    fetchData()
-      .catch(console.error);
+    fetchData().catch(console.error);
   }, []);
 
   return (
@@ -31,8 +29,8 @@ export default function BasicList() {
         </thead>
         <tbody>
           {data?.length > 0 ? (
-            data.map(r => (
-              <tr>
+            data.map((r) => (
+              <tr key={r.sys_id}>
                 <td>{r.number}</td>
                 <td>{r.caller_id?.value}</td>
                 <td>{r.short_description}</td>
