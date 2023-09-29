@@ -4,7 +4,7 @@ Simple project skeleton for creating a ServiceNow Single Page App hosted on a Se
 
 ## Clone Repository and Install Dependencies
 
-Make sure you have `node` and `npm` or `yarn` (preferable) installed on your system.
+Make sure you have `node` and `npm` installed on your system.
 
 Run the following command to clone the repository
 
@@ -14,14 +14,14 @@ npx degit https://github.com/jmknz-icf/sn-react-starter.git <my-project-director
 
 ```
 cd <my-project-directory>
-yarn
+npm install
 ```
 
 After running these commands, you should have a working React app. Run the following
 command to run the app locally:
 
 ```
-yarn start
+npm start
 ```
 
 The app should open in a new browser window and you should be able to navigate around
@@ -165,7 +165,7 @@ for the responses separately. Note the followign:
 
 Now for the part everyone has been waiting for. Let's build and deploy our app.
 Let's go back to the directory where your React app was cloned. Stop the local
-dev-server if it's running, then run `yarn build`. This will create a new directory
+dev-server if it's running, then run `npm run build`. This will create a new directory
 called `dist` that will contain all your assets. So let's see what's there:
 
 ### `index.html`
