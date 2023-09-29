@@ -1,22 +1,12 @@
 module.exports = {
   plugins: ['stylelint-scss'],
-  extends: [
-    'stylelint-config-standard',
-    'stylelint-config-recommended-scss',
-    'stylelint-config-prettier',
-  ],
+  extends: ['stylelint-config-standard', 'stylelint-config-recommended-scss'],
   ignoreFiles: ['/public/assets/**/*.css', 'coverage/**/*.css'],
   rules: {
     'scss/at-rule-no-unknown': [
       true,
       {
-        ignoreAtRules: [
-          'tailwind',
-          'apply',
-          'variants',
-          'responsive',
-          'screen',
-        ],
+        ignoreAtRules: ['tailwind', 'apply', 'variants', 'responsive', 'screen'],
       },
     ],
     'declaration-block-trailing-semicolon': null,
