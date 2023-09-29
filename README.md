@@ -9,7 +9,7 @@ Make sure you have `node` and `npm` installed on your system.
 Run the following command to clone the repository
 
 ```
-npx degit https://github.com/jmknz-icf/sn-react-starter.git <my-project-directory>
+npx degit https://github.com/jmknz-icf/sn-react-starter <my-project-directory>
 ```
 
 ```
@@ -180,6 +180,7 @@ it you should see something like this
   <g:evaluate>var docType = '&lt;!doctype html&gt;';</g:evaluate>
   <g2:no_escape>$[docType]</g2:no_escape>
 
+  <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
@@ -194,11 +195,14 @@ it you should see something like this
     <link href="/api/x_305452_sandbox/resources/css/main-3b811e2b24f18052f545-css" rel="stylesheet" />
   </head>
 
-  <body><noscript>You need Javascript enabled for this application to work!</noscript>
-    <div id="root"></div>
+  <body>
+    <div id="root">
+      <noscript>You need Javascript enabled for this application to work!</noscript>
+    </div>
     <script defer="defer" src="/api/x_305452_sandbox/resources/js/runtime-df6e96cb314f0bd22492-bundle-js"></script>
     <script defer="defer" src="/api/x_305452_sandbox/resources/js/main-21d1faa8dcdde2b12148-bundle-js"></script>
   </body>
+  </html>
 </j:jelly>
 ```
 
@@ -243,6 +247,9 @@ around your app (e.g. `https://<your-instance>.service-now.com/my-react-app/`)!
 
 ## Additional Notes
 
+- Absolute path imports are possible using aliasing. Currently `@` is an alias
+  for `./src` but you can configure whatever is comfortable to you in
+  `./config/webpack/webpack.common.js` and `jsconfig.json`
 - The `.env.example` file in the root directory demonstrates some of the basic
   environment variables that can be used.
 - The `./config` directory contains the configurations for testing and Webpack
@@ -251,8 +258,8 @@ around your app (e.g. `https://<your-instance>.service-now.com/my-react-app/`)!
   on your instance without having to have it hard-coded throughout your app
 - The application is configured to use `tailwindcss` a CSS utility-first framework.
   The decision to use it is up to you.
-- The project currently uses `axios` but you could use any form of data fetching
-  you'd like, whether that be `fetch`, `XMLHttpRequest`, or `GraphQL`
+- The project currently uses `fetch` but you could use any form of data fetching
+  you'd like, whether that be `axios`, `XMLHttpRequest`, or `GraphQL`
 - The `./src/template.html` file contains the template file for you to work with
   while developing. The `webpack-dev-server` is configured to proxy your ServiceNow
   instance so you don't need to pass the full hostname with your request and
