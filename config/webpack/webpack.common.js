@@ -6,11 +6,17 @@ const Dotenv = require('dotenv-webpack');
 const paths = require('../paths');
 
 module.exports = {
-  entry: [`${paths.src}/index.js`],
+  entry: [`${paths.src}/main.jsx`],
   output: {
     path: paths.build,
     filename: '[name].bundle.js',
     publicPath: '/',
+  },
+  resolve: {
+    alias: {
+      '@': paths.src,
+    },
+    extensions: ['', '.js', '.jsx', '.ts', '.tsx'],
   },
   target: 'web',
   plugins: [
@@ -33,7 +39,7 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.js$/,
+        test: /\.jsx?$/,
         exclude: /node_modules/,
         use: ['babel-loader'],
       },

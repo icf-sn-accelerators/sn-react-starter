@@ -12,10 +12,11 @@
   <g2:no_escape>
     $[docType]
   </g2:no_escape>
+  <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0" />
-    
+
     <title><%= htmlWebpackPlugin.options.title %></title>
 
     <g:evaluate object="true">
@@ -31,7 +32,9 @@
   </head>
 
   <body>
-    <noscript>You need Javascript enabled for this application to work!</noscript>
-    <div id="root"></div>
+    <div id="root">
+      <noscript>You need Javascript enabled for this application to work!</noscript>
+    </div>
   </body>
+  </html>
 </j:jelly>

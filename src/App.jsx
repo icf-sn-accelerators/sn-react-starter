@@ -9,10 +9,10 @@ import {
 } from 'react-router-dom';
 
 const BasicForm = lazy(() =>
-  import(/* webpackChunkName: "BasicForm" */ './components/BasicForm')
+  import(/* webpackChunkName: "BasicForm" */ '@/components/BasicForm')
 );
 const BasicList = lazy(() =>
-  import(/* webpackChunkName: "BasicList" */ './components/BasicList')
+  import(/* webpackChunkName: "BasicList" */ '@/components/BasicList')
 );
 
 function Form() {
