@@ -98,7 +98,7 @@ Here is an example for a `Get JS Resources` resource:
 ```js
 /**
  * HTTP method: GET
- * Relative path: /css/{filename}
+ * Relative path: /js/{filename}
  * Requires autentication: false
  */
 (function process(/*RESTAPIRequest*/ request, /*RESTAPIResponse*/ response) {
